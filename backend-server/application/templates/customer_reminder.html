@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                color: #333;
+                background-color: #f7f7f7;
+            }
+            .container {
+                background-color: #ffffff;
+                padding: 20px;
+                margin: auto;
+                width: 80%;
+                border-radius: 5px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .header {
+                background-color: #4CAF50;
+                color: #ffffff;
+                padding: 10px 0;
+                text-align: center;
+                border-radius: 5px 5px 0 0;
+            }
+            .content {
+                padding: 20px;
+            }
+            .products {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: space-evenly;
+            }
+            .product-card {
+                width: 150px;
+                text-align: center;
+                border: 1px solid #eee;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            .product-image {
+                width: 100%;
+                height: 50%;
+            }
+            .discount {
+                background-color: #f00;
+                color: #fff;
+                padding: 2px 5px;
+                border-radius: 3px;
+                margin-left: 5px;
+            }
+            .final-price {
+                font-weight: bold;
+                color: #4CAF50;
+            }
+            .footer {
+                text-align: center;
+                padding: 20px 0;
+                border-top: 1px solid #eee;
+                color: #777;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h2>We Missed You at Paper Basket!</h2>
+            </div>
+            <div class="content">
+                <p>Dear {{user.first_name}} {{user.last_name}},</p>
+                <p>We've noticed that you haven't visited us for a while. There's so much happening here, and we thought you might be interested in some of our new arrivals!</p>
+                <div class="products">
+                    {%for product in products%}
+                        <div class="product-card">
+                            <img class="product-image" src="cid:{{product.product_image}}" alt="{{product.name}}">
+                            <p>{{product.name}}</p>
+                            <p><del>{{product.price}} per {{product.unit}}</del> <span class="discount">{{product.discount}}%</span></p>
+                            <p class="final-price">New Price: {{(product.price*(1-product.discount/100))|round(2,'floor')}} per {{product.unit}}</p>
+                        </div>
+                    {%endfor%}
+                </div>
+                <p>And there's plenty more to explore! We hope to see you soon!</p>
+                <p>Best wishes,</p>
+                <p>The Paper Basket Team</p>
+            </div>
+            <div class="footer">
+                <p>&copy; 2023 Paper Basket. All rights reserved.</p>
+                <p>If you wish to unsubscribe from our emails, please <a href="#">click here</a>.</p>
+            </div>
+        </div>
+    </body>
+</html>

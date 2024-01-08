@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                color: #333;
+                background-color: #f7f7f7;
+            }
+
+            .container {
+                background-color: #ffffff;
+                padding: 20px;
+                margin: auto;
+                width: 80%;
+                border-radius: 5px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .header {
+                background-color: #4CAF50;
+                color: #ffffff;
+                padding: 10px 0;
+                text-align: center;
+                border-radius: 5px 5px 0 0;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .products-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .products-table th,
+            .products-table td {
+                border: 1px solid #eee;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .footer {
+                text-align: center;
+                padding: 20px 0;
+                border-top: 1px solid #eee;
+                color: #777;
+            }
+
+            .total-expense {
+                background-color: #eee;
+                padding: 10px;
+                text-align: right;
+                font-weight: bold;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h2>Your Monthly Activity Report</h2>
+            </div>
+            <div class="content">
+                <p>Dear {{user.first_name}} {{user.last_name}},</p>
+                <p>Here's a summary of your activities at Paper Basket for the month: {{month}}, {{year}}</p>
+                <table class="products-table">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Supplier Name</th>
+                            <th>Category Name</th>
+                            <th>Quantity Purchased</th>
+                            <th>Amount Spend($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%if orders|length%}
+                            {%for order in orders%}
+                                <tr>
+                                    <td>{{order.name}}</td>
+                                    <td>{{order.supplier}}</td>
+                                    <td>{{order.category}}</td>
+                                    <td>{{order.quantity}} {{order.unit}}</td>
+                                    <td>${{order.price}}</td>
+                                </tr>
+                            {%endfor%}
+                        {%else%}
+                            <tr>
+                                <td colspan="5">You had no orders last month. Check out our fresh arrivals this month!</td>
+                            </tr>
+                        {%endif%}
+                    </tbody>
+                </table>
+                {%if orders|length%}
+                    <div class="total-expense">
+                        Total expense this month: ${{total_amount}}
+                    </div>
+                    <p>Thank you for being a valued customer. We look forward to serving you again!</p>
+                {%else%}
+                    <p>It seems you haven't stocked up on your groceries from us yet. Dive into our fresh produce and pantry essentials, 
+                        and find everything you need to whip up your next delicious meal. We're always here to cater to your kitchen needs.</p>
+                {%endif%}
+                <p>Best wishes,</p>
+                <p>The Paper Basket Team</p>
+            </div>
+            <div class="footer">
+                <p>&copy; 2023 Paper Basket. All rights reserved.</p>
+                <p>If you wish to unsubscribe from our emails, please <a href="#">click here</a>.</p>
+            </div>
+        </div>
+    </body>
+</html>

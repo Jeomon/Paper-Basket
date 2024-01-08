@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Store Manager Application Approved</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                color: #333;
+                background-color: #f7f7f7;
+            }
+            .container {
+                background-color: #ffffff;
+                padding: 20px;
+                margin: auto;
+                width: 80%;
+                border-radius: 5px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .header {
+                background-color: #4CAF50;
+                color: #ffffff;
+                padding: 10px 0;
+                text-align: center;
+                border-radius: 5px 5px 0 0;
+            }
+            .content {
+                padding: 20px;
+            }
+            .message {
+                margin-top: 20px;
+            }
+            .button {
+                display: block;
+                width: 200px;
+                margin: 20px 0;
+                padding: 10px;
+                text-align: center;
+                background-color: #4CAF50;
+                color: #ffffff;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h2>Your Store Manager Application Has Been Accepted</h2>
+            </div>
+            <div class="content">
+                <p>Dear {{user.first_name}} {{user.last_name}},</p>
+                <p>Congratulations! We are delighted to inform you that your application to become a Store Manager at Paper Basket has been accepted by the admin. Welcome to our team!</p>
+                <p>You are now responsible for managing the day-to-day operations of our store. Your hard work, dedication, and passion for our products have not gone unnoticed, and we believe you will be a valuable asset to our team.</p>
+                <a class="button" href="http://{{hostname}}:{{port}}/user/verify/{{token}}">Access your account</a>
+                <p>If you have any questions or need assistance during your onboarding process, please feel free to reach out to our support team.</p>
+                <div class="message">
+                    <p>Best regards,</p>
+                    <p>The Paper Basket Team</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

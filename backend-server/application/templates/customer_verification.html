@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Email Verification</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                color: #333;
+                background-color: #f7f7f7;
+            }
+            .container {
+                background-color: #ffffff;
+                padding: 20px;
+                margin: auto;
+                width: 80%;
+                border-radius: 5px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .header {
+                background-color: #4CAF50;
+                color: #ffffff;
+                padding: 10px 0;
+                text-align: center;
+                border-radius: 5px 5px 0 0;
+            }
+            .content {
+                padding: 20px;
+            }
+            .footer {
+                text-align: center;
+                padding: 20px 0;
+                border-top: 1px solid #eee;
+                color: #777;
+            }
+            .btn {
+                background-color: #4CAF50;
+                color: #ffffff;
+                margin: 10px;
+                padding: 10px 20px;
+                text-decoration: none;
+                border-radius: 3px;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h2>Welcome to Paper Basket!</h2>
+            </div>
+            <div class="content">
+                <p>Dear {{user.first_name}} {{user.last_name}},</p>
+                <p>Thank you for signing up for the Grocery Store App! Before you can start using your account, we need to confirm your email address. Please verify your email by clicking the link below:</p>
+                <p><a rel="noopener noreferrer" target="_blank" href="http://{{hostname}}:{{port}}/user/verify/{{token}}" class="btn">Verify my email</a></p>
+                <p>If you didn't sign up for the Grocery Store App, you can safely ignore this email.</p>
+            </div>
+            <div class="footer">
+                <p>&copy; 2023 Grocery Store App. All rights reserved.</p>
+                <p>If you have any questions, please contact our support team.</p>
+            </div>
+        </div>
+    </body>
+</html>
