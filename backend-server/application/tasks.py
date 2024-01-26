@@ -112,7 +112,7 @@ def generate_pdf_report(user_id):
     for product in products:
         qty_purchased,price_spend=0,0
         for order in orders:
-            if (previous_date<=order.order_date<present_date) or True:
+            if (previous_date<=order.order_date<present_date):
                 if (product.name==order.name):
                     total_amount+=order.price
                     qty_purchased+=order.quantity
