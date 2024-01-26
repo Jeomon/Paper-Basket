@@ -1,6 +1,6 @@
 # Welcome to Paper Basket (Grocery Store App)
 Paper Basket is a web app used for purchasing groceries, which has one 
-admin, with multiple store managers and customers. Admin adds or removes categories, and checks new store manager sign-ups and requests from store manager regarding category modifications. Customers can purchase from the store. Store managers can add new products and make requests regarding categories.
+admin, with multiple store managers and customers. Admin adds or removes categories and checks new store manager sign-ups and requests from store manager regarding category modifications. Customers can purchase from the store. Store managers can add new products and make requests regarding categories.
 
 ## DB Diagram
 <img src="./DB-diagram.svg" alt="DB Diagram">
